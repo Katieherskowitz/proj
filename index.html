@@ -3,48 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Speech Flow Projector</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <main class="app">
-      <header class="top-bar">
-        <h1>Speech Flow Projector</h1>
-        <p>
-          Speak into your mic. AI transcribes your words with occasional
-          "mistakes" for a surreal projection effect.
-        </p>
-      </header>
+    <title>Echo Stage — speak, see it fly, save the show</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg1: #1a0a2e;
+        --bg2: #0d0221;
+        --accent: #ff6bcb;
+        --accent2: #00d4ff;
+        --card: rgba(18, 12, 40, 0.85);
+        --border: rgba(255, 255, 255, 0.12);
+      }
 
-      <section class="controls">
-        <button id="startBtn">Start Speech</button>
-        <button id="stopBtn" disabled>Stop & Save Video</button>
-        <label class="slider-wrap" for="mistakeRate">
-          AI Mistake Rate
-          <input
-            id="mistakeRate"
-            type="range"
-            min="0"
-            max="0.6"
-            step="0.05"
-            value="0.2"
-          />
-          <span id="mistakeRateValue">20%</span>
-        </label>
-      </section>
+      * {
+        box-sizing: border-box;
+      }
 
-      <section class="stage-wrap">
-        <canvas id="projectionCanvas" width="1280" height="720"></canvas>
-      </section>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Outfit", system-ui, sans-serif;
+        background:
+          radial-gradient(ellipse 120% 80% at 50% -20%, #4a1d6e 0%, transparent 50%),
+          radial-gradient(ellipse 80% 50% at 100% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 45%),
+          radial-gradient(ellipse 80% 50% at 0% 80%, rgba(255, 107, 203, 0.1) 0%, transparent 45%),
+          linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+        color: #f0e8ff;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
 
-      <section class="status-panel">
-        <p><strong>Status:</strong> <span id="statusText">Idle</span></p>
-        <p class="hint">
-          For best results, use Chrome and allow microphone permissions.
-        </p>
-      </section>
-    </main>
+      .app {
+        width: min(96vw, 1100px);
+        display: grid;
+        gap: 1.25rem;
+      }
 
-    <script src="./app.js"></script>
-  </body>
-</html>
+      .top-bar {
+        text-align: center;
