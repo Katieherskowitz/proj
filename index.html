@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Flow Projector</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top-bar">
+        <h1>Speech Flow Projector</h1>
+        <p>
+          Speak into your mic. AI transcribes your words with occasional
+          "mistakes" for a surreal projection effect.
+        </p>
+      </header>
+
+      <section class="controls">
+        <button id="startBtn">Start Speech</button>
+        <button id="stopBtn" disabled>Stop & Save Video</button>
+        <label class="slider-wrap" for="mistakeRate">
+          AI Mistake Rate
+          <input
+            id="mistakeRate"
+            type="range"
+            min="0"
+            max="0.6"
+            step="0.05"
+            value="0.2"
+          />
+          <span id="mistakeRateValue">20%</span>
+        </label>
+      </section>
+
+      <section class="stage-wrap">
+        <canvas id="projectionCanvas" width="1280" height="720"></canvas>
+      </section>
+
+      <section class="status-panel">
+        <p><strong>Status:</strong> <span id="statusText">Idle</span></p>
+        <p class="hint">
+          For best results, use Chrome and allow microphone permissions.
+        </p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
